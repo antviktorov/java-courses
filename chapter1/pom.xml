@@ -1,0 +1,11 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>chapter1</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>com.antviktorov</groupId>
+        <artifactId>java-courses</artifactId>
+        <version>1.0</version>
+    </parent>
+</project>

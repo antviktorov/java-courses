@@ -18,10 +18,10 @@ public class CalculateTest {
 	* First Test in Java
 	*/
 	@Test
-	public function whenAddOneToIneThenTwo() {
-		ByteArrayOutputStream out = new ByteArratOutputSream();
+	public void whenAddOneToIneThenTwo() {
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 		Calculate.main(null);
-		assertThat(out.toString(), is("Hello World!\r\n"));
+		assertThat(out.toString(), is("Hello World!\n"));
 	} 
 }

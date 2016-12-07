@@ -30,7 +30,7 @@ public class Paint {
                 builder.append("^");
             }
             level--;
-            builder.append("\n");
+            builder.append(System.getProperty("line.separator"));
         }
 
         return builder.toString();

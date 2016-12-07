@@ -35,7 +35,10 @@ public class PaintTest {
     @Test
     public void whenBuidPyramidHeightTwoThenPyramid() {
         Paint paint = new Paint();
-        assertEquals(paint.piramid(2), " ^\n^^\n");
+        assertEquals(
+                paint.piramid(2),
+                " ^" + System.getProperty("line.separator") + "^^" + System.getProperty("line.separator")
+        );
     }
 
     /**
@@ -44,6 +47,11 @@ public class PaintTest {
     @Test
     public void whenBuidPyramidHeightThreeThenPyramid() {
         Paint paint = new Paint();
-        assertEquals(paint.piramid(3), "  ^\n ^^\n^^^\n");
+        assertEquals(
+                paint.piramid(3),
+                "  ^" + System.getProperty("line.separator") + " ^^" +
+                        System.getProperty("line.separator") + "^^^" +
+                        System.getProperty("line.separator")
+        );
     }
 }

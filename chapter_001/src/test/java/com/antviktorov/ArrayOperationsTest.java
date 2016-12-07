@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class ArrayOperationsTest {
 
     /**
-     * Reverse operations test.
+     * Bubble sorting test.
      */
     @Test
     public void bubbleSortTest() {

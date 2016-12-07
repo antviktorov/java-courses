@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Array reverse test class.
+ * Array operations test class.
  *
  * @author Anton Viktorov
  * @since 1.0
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class ArrayOperationsTest {
 
     /**
-     * Reverse array test.
+     * Reverse operations test.
      */
     @Test
     public void bubbleSortTest() {

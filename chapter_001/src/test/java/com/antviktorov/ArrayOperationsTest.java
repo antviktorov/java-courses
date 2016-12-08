@@ -34,4 +34,30 @@ public class ArrayOperationsTest {
                 is(new int[][]{{7, 4, 1},{8, 5, 2},{9, 6, 3}})
         );
     }
+
+    /**
+     * Duplicates test.
+     */
+    @Test
+    public void removeDuplicatesFromArrayTest() {
+        ArrayOperations operations = new ArrayOperations();
+        assertThat(
+                operations.removeDuplicates(new String[]{"Привет","Привет","Мир","Мир"}),
+                is(new String[]{"Привет","Мир"})
+        );
+    }
+
+    /**
+     * Duplicates test advanced.
+     */
+    @Test
+    public void removeDuplicatesFromArrayAdvancedTest() {
+        ArrayOperations operations = new ArrayOperations();
+        assertThat(
+                operations.removeDuplicates(
+                        new String[]{"Java","JavaScript","Java","PHP","Java","JavaScript","Pascal","PHP"}
+                ),
+                is(new String[]{"Java", "JavaScript", "PHP", "Pascal"})
+        );
+    }
 }

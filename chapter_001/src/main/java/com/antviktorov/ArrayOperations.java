@@ -1,5 +1,7 @@
 package com.antviktorov;
 
+import java.util.Arrays;
+
 /**
  * General class for array operations.
  * @author Anton Viktorov
@@ -60,5 +62,38 @@ public class ArrayOperations {
         }
 
         return result;
+    }
+
+    /**
+     * Remove duplicates from array.
+     * @param array - provided array
+     * @return
+     */
+    public String[] removeDuplicates(String array[]) {
+
+        int length = array.length;
+        // Duplicates amount
+        int duplicates = 0;
+        int i = 0;
+
+        while (i < length - duplicates) {
+            int j = i + 1;
+            while (j < length - duplicates) {
+                if (array[i].equals(array[j])) {
+                    int k = j;
+                    //Shift array to the left
+                    while (k < length - 1) {
+                        array[k] = array[k + 1];
+                        array[k + 1] = null;
+                        k++;
+                    }
+                    duplicates++;
+                }
+                j++;
+            }
+            i++;
+        }
+
+        return Arrays.copyOf(array, array.length - duplicates);
     }
 }

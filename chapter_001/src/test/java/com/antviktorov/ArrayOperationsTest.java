@@ -20,4 +20,18 @@ public class ArrayOperationsTest {
         ArrayOperations operations = new ArrayOperations();
         assertThat(operations.bubble(new int[]{3, 6, 1, 9, 2, 4, 8, 5, 7}), is(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
     }
+
+    /**
+     * Turn array test.
+     */
+    @Test
+    public void turnArrayTest() {
+        ArrayOperations operations = new ArrayOperations();
+        assertThat(
+                operations.turnArray(
+                    new int[][]{{1, 2, 3},{4, 5, 6},{7, 8, 9}}
+                ),
+                is(new int[][]{{7, 4, 1},{8, 5, 2},{9, 6, 3}})
+        );
+    }
 }

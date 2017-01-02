@@ -47,6 +47,10 @@ public class Tracker {
                 break;
             }
             position++;
+
+            if (position == this.position) {
+                break;
+            }
         }
     }
 
@@ -58,7 +62,10 @@ public class Tracker {
         Item[] newItems = new Item[this.items.length];
 
         int position = 0;
-        for (Item item : items) {
+        for (Item item : this.items) {
+            if (item == null) {
+                break;
+            }
             if (item.getId().equals(needle.getId())) {
                 continue;
             }
@@ -80,6 +87,9 @@ public class Tracker {
         Item[] foundItems = new Item[this.items.length];
         int position = 0;
         for (Item item : items) {
+            if (item == null) {
+                break;
+            }
             if (item.getName().contains(key)) {
                 foundItems[position++] = item;
             }
@@ -109,8 +119,8 @@ public class Tracker {
      * @return Item[]
      */
     public Item[] getItems() {
-        Item[] result = new Item[position];
-        result = Arrays.copyOfRange(items, 0, position);
+        Item[] result = new Item[this.position];
+        result = Arrays.copyOfRange(this.items, 0, this.position);
         return result;
     }
 

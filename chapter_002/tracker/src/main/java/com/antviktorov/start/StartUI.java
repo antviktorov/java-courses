@@ -21,6 +21,10 @@ public class StartUI {
             System.out.println(item.getName());
         }
 
+        Item[] items = tracker.getItems();
+
+        tracker.delete(items[0]);
+
         /*
         TODO remove this code or refactor if it's needed
         Tracker tracker = new Tracker();

@@ -8,9 +8,9 @@ package com.antviktorov;
 public class Factorial {
 
     /**
-     * Calculate factorial
+     * Calculate factorial.
      * @param n - factorial
-     * @return
+     * @return factorial value
      */
     public int calculate(int n) {
         int factorial = 1;

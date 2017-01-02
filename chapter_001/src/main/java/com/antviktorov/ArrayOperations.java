@@ -12,7 +12,7 @@ public class ArrayOperations {
     /**
      * Bubble sorting.
      * @param array - entire array
-     * @return
+     * @return int[]
      */
     public int[] bubble(int[] array) {
         int length = array.length;
@@ -27,8 +27,9 @@ public class ArrayOperations {
                 }
             }
 
-            if(!swapped)
+            if (!swapped) {
                 break;
+            }
         }
 
         return array;
@@ -37,28 +38,28 @@ public class ArrayOperations {
     /**
      * Turn arrat on CW 90.
      * @param values - provided multidemential array
-     * @return
+     * @return int[][]
      */
-    public int[][] turnArray(int values[][]) {
+    public int[][] turnArray(int[][] values) {
 
         int i;
         int n = values.length;
 
         // Check matrix if it's possible to turn
-        for (i = 0; i < n; i++ ) {
+        for (i = 0; i < n; i++) {
             if (n != values[i].length) {
                 throw new Error("Provided array isn't squarable.");
             }
         }
 
         int j;
-        int result[][] = new int[n][n];
+        int[][] result = new int[n][n];
 
         // Turn array on CW 90
-        for (i = 0; i < n; i++)
-        {
-            for (j = 0; j < n; j++)
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++) {
                 result[i][j] = values[n - j - 1][i];
+            }
         }
 
         return result;
@@ -67,9 +68,9 @@ public class ArrayOperations {
     /**
      * Remove duplicates from array.
      * @param array - provided array
-     * @return
+     * @return String[]
      */
-    public String[] removeDuplicates(String array[]) {
+    public String[] removeDuplicates(String[] array) {
 
         int length = array.length;
         // Duplicates amount

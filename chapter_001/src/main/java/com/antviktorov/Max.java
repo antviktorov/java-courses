@@ -8,9 +8,9 @@ package com.antviktorov;
 public class Max {
     /**
      * Get max from two.
-     * @param first
-     * @param second
-     * @return
+     * @param first - first value
+     * @param second - second value
+     * @return max among
      */
     public int max(int first, int second) {
         return first > second ? first : second;
@@ -18,10 +18,10 @@ public class Max {
 
     /**
      * Get max from three.
-     * @param first
-     * @param second
-     * @param third
-     * @return
+     * @param first - first value
+     * @param second - second value
+     * @param third - third value
+     * @return max among
      */
     public int max(int first, int second, int third) {
         return  max(max(first, second), third);

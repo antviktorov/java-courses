@@ -7,17 +7,45 @@ package com.antviktorov;
  */
 public class Triangle {
     /**
-     * Point A
+     * Half constant.
      */
-    public Point a;
+    static final double HALF = 0.5;
     /**
-     * Point B
+     * Point A.
      */
-    public Point b;
+    private Point a;
     /**
-     *
+     * Point B.
      */
-    public Point c;
+    private Point b;
+    /**
+     * Point C.
+     */
+    private Point c;
+
+    /**
+     * Get point a.
+     * @return point a
+     */
+    public Point getA() {
+        return this.a;
+    }
+
+    /**
+     * Get point c.
+     * @return point c
+     */
+    public Point getC() {
+        return this.c;
+    }
+
+    /**
+     * Get point b.
+     * @return point b
+     */
+    public Point getB() {
+        return this.b;
+    }
 
     /**
      * Triangle constructor.
@@ -42,7 +70,7 @@ public class Triangle {
         double sideC = this.c.distanceTo(this.a);
 
         //Half of perimeter for Geron's formula
-        double halfPerimeter = (sideA + sideB + sideC) * 0.5;
+        double halfPerimeter = (sideA + sideB + sideC) * HALF;
 
         //Calculation by Gerons's formula
         return Math.sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));

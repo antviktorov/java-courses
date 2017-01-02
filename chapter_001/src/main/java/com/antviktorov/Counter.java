@@ -11,7 +11,7 @@ public class Counter {
      * Calculate even numbers.
      * @param start - from
      * @param finish - to
-     * @return
+     * @return summ
      */
     public int add(int start, int finish) {
         int summ = 0;

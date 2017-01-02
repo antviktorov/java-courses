@@ -10,7 +10,7 @@ public class Turn {
     /**
      * Reverse array method.
      * @param array - entire array
-     * @return
+     * @return reversed array
      */
     public int[] back(int[] array) {
 

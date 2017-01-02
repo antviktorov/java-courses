@@ -1,7 +1,5 @@
 package com.antviktorov;
 
-import java.util.Arrays;
-
 /**
  * Final task.
  * @author Anton Viktorov
@@ -13,7 +11,7 @@ public class StringOperations {
      * Check if stirng contains substring.
      * @param origin - entire string
      * @param sub - substring
-     * @return
+     * @return boolean result
      */
     boolean contains(String origin, String sub) {
 

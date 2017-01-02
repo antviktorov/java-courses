@@ -13,7 +13,7 @@ public class Merge {
      * Merge two arrays into own.
      * @param array1 - first array
      * @param array2 - second array
-     * @return
+     * @return merged array
      */
     public int[] merge(int[] array1, int[] array2) {
         int length1 = array1.length, length2 = array2.length;
@@ -37,7 +37,7 @@ public class Merge {
     /**
      * Merge sort array.
      * @param array - entire array
-     * @return
+     * @return sorted array
      */
     public int[] sort(int[] array) {
         int length = array.length;

@@ -9,13 +9,17 @@ public class Paint {
     /**
      * Build pyramid.
      * @param h - pyramid height
-     * @return
+     * @return pyramid string
      */
     public  String piramid(int h) {
         //Return emty string if height = 0
-        if (h == 0) return "";
+        if (h == 0) {
+            return "";
+        }
         //Return one height pyramid
-        if (h == 1) return "^";
+        if (h == 1) {
+            return "^";
+        }
 
         int level = h;
         StringBuilder builder = new StringBuilder();

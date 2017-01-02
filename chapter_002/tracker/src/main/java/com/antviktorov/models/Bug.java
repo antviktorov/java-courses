@@ -1,7 +1,9 @@
 package com.antviktorov.models;
 
 /**
- * Created by antonviktorov on 13.12.16.
+ * Bug entity.
+ * @author antonviktorov
+ * @since 1.0
  */
 public class Bug extends Item {
 }

@@ -9,11 +9,11 @@ public class Point {
     /**
      * Point x.
      */
-    public double x;
+    private double x;
     /**
      * Point y.
      */
-    public double y;
+    private double y;
 
     /**
      * Point constructor.
@@ -31,6 +31,22 @@ public class Point {
      * @return distance
      */
     public double distanceTo(Point point) {
-        return Math.sqrt(Math.pow(point.x - this.x, 2) + Math.pow(point.y - this.y, 2));
+        return Math.sqrt(Math.pow(point.getX() - this.x, 2) + Math.pow(point.getY() - this.y, 2));
+    }
+
+    /**
+     * Get x value.
+     * @return value
+     */
+    public double getX() {
+        return this.x;
+    }
+
+    /**
+     * Get y value.
+     * @return value
+     */
+    public double getY() {
+        return this.y;
     }
 }

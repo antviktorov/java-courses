@@ -16,14 +16,11 @@ public class StartUI {
      */
     public static void main(String[] args) {
         Tracker tracker = new Tracker();
-        tracker.add(new Task("First task", "first descritption"));
+        tracker.add(new Task("First task", "first description"));
+        tracker.add(new Task("Second task", "second description"));
         for (Item item : tracker.getItems()) {
             System.out.println(item.getName());
         }
-
-        Item[] items = tracker.getItems();
-
-        tracker.delete(items[0]);
 
         /*
         TODO remove this code or refactor if it's needed

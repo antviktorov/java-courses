@@ -1,8 +1,6 @@
 package com.antviktorov.start;
 
-import com.antviktorov.models.Item;
-import com.antviktorov.models.Task;
-
+import com.antviktorov.menu.MenuTracker;
 
 /**
  * Application start point.
@@ -10,31 +8,46 @@ import com.antviktorov.models.Task;
  * @since 1.0
  */
 public class StartUI {
+
+    /**
+     * Input flow.
+     */
+    private  Input input;
+    /**
+     * Tracker instance.
+     */
+    private Tracker tracker;
+
+    /**
+     * Main class constructor.
+     * @param input - input flow
+     * @param tracker - tracker instance
+     */
+    public StartUI(Input input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
+
+    /**
+     * Init tracker and main menu responsibilities.
+     */
+    public void init() {
+        MenuTracker menu = new MenuTracker(input, tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            int key = Integer.valueOf(input.ask("Select:"));
+            menu.select(key);
+        } while (!"y".equals(this.input.ask("Exit? y")));
+    }
+
     /**
      * Java CLI start point.
      * @param args - array of arguments provided in CLI
      */
     public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-        tracker.add(new Task("First task", "first description"));
-        tracker.add(new Task("Second task", "second description"));
-        for (Item item : tracker.getItems()) {
-            System.out.println(item.getName());
-        }
-
-        /*
-        TODO remove this code or refactor if it's needed
-        Tracker tracker = new Tracker();
-
-        tracker.items[0] = new Item("Anton", "test",0);
-        tracker.items[1] = new Task("Vasia", "Must be Pupkin");
-        tracker.items[2] = new Bug();
-
-        for (Item item : tracker.items) {
-            if (item instanceof Task) {
-                System.out.println(((Task) item).calculatePrice());
-            }
-            System.out.println(item.getName() + " " + item.getDescription());
-        }*/
+        new StartUI(
+                new ConsoleInput(), new Tracker()
+        ).init();
     }
 }

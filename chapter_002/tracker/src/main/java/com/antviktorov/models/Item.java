@@ -1,5 +1,7 @@
 package com.antviktorov.models;
 
+import java.util.Arrays;
+
 /**
  * Base class for entities.
  * @author antonviktorov
@@ -22,6 +24,14 @@ public class Item {
      * Creation data UTS.
      */
     protected long created;
+    /**
+     * Comments.
+     */
+    protected String[] comments = new String[10];
+    /**
+     * Comments position.
+     */
+    protected int commentsPosition = 0;
     /**
      * Base constructor.
      */
@@ -70,6 +80,22 @@ public class Item {
      */
     public String getId() {
         return this.id;
+    }
+
+    /**
+     * Get comments.
+     * @return comments
+     */
+    public String[] getComments() {
+        return  Arrays.copyOfRange(this.comments, 0, this.commentsPosition);
+    }
+
+    /**
+     * Add comment.
+     * @param comment - comment string
+     */
+    public void addComment(String comment) {
+        this.comments[commentsPosition++] = comment;
     }
 
     /**

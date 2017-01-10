@@ -2,6 +2,7 @@
 
 ## Maven commands ##
 * `mvn clean install` build application
+* `mvn clean package` build package
 * `mvn validate` check code styles
 * `mvn verify` check test line coverage
 * `mvn test` run tests

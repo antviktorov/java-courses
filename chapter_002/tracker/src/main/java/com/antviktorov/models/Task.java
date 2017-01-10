@@ -1,5 +1,7 @@
 package com.antviktorov.models;
 
+import java.sql.Timestamp;
+
 /**
  * Task entity.
  * @author antonviktorov
@@ -14,6 +16,10 @@ public class Task extends Item {
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+        this.created = timestamp.getTime();
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.antviktorov.start;
 
 import com.antviktorov.models.Item;
+import com.antviktorov.filters.Filter;
 
 import java.util.Random;
 import java.util.Arrays;
@@ -102,7 +103,7 @@ public class Tracker {
      * @param id - needle id
      * @return Item
      */
-    protected Item findById(String id) {
+    public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
@@ -122,6 +123,29 @@ public class Tracker {
         Item[] result = new Item[this.position];
         result = Arrays.copyOfRange(this.items, 0, this.position);
         return result;
+    }
+
+    /**
+     * Get filtered items.
+     * @param filters - array of filters
+     * @return filtered items
+     */
+    public Item[] getItems(Filter[] filters) {
+        Item[] result = new Item[this.position];
+        int filtered = 0;
+
+        for (Item item : this.items) {
+            if (item == null) {
+                continue;
+            }
+            for (Filter filter : filters) {
+                if (filter.valid(item)) {
+                    result[filtered++] = item;
+                    break;
+                }
+            }
+        }
+        return Arrays.copyOfRange(result, 0, filtered);
     }
 
     /**

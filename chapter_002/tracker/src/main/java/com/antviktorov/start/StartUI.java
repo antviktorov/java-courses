@@ -1,6 +1,7 @@
 package com.antviktorov.start;
 
 import com.antviktorov.menu.MenuTracker;
+import com.antviktorov.menu.UserAction;
 
 /**
  * Application start point.
@@ -37,6 +38,23 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(input, tracker);
         menu.fillActions();
+        UserAction testAction = new UserAction() {
+            @Override
+            public int key() {
+                return 8;
+            }
+
+            @Override
+            public void execute(Input input, Tracker tracker) {
+                //TODO
+            }
+
+            @Override
+            public String info() {
+                return String.format("%s. %s", this.key(), "Test anonymous action");
+            }
+        };
+        menu.addAction(testAction);
         this.ranges = menu.getActionKeys();
         do {
             menu.show();

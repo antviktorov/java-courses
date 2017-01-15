@@ -17,7 +17,13 @@ import com.antviktorov.models.Task;
  * @author antonviktorov
  * @since 1.0
  */
-class EditItem implements UserAction {
+class EditItem extends BaseAction implements UserAction {
+    /**
+     * Edit item constructor.
+     */
+    EditItem() {
+        super("Edit task");
+    }
     /**
      * Get action key.
      * @return key
@@ -38,13 +44,6 @@ class EditItem implements UserAction {
         task.setId(id);
         tracker.update(task);
     }
-    /**
-     * Info string.
-     * @return info data
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Edit item");
-    }
 }
 
 /**
@@ -52,7 +51,13 @@ class EditItem implements UserAction {
  * @author antonviktorov
  * @since 1.0
  */
-class DeleteItem implements UserAction {
+class DeleteItem extends BaseAction implements UserAction {
+    /**
+     * Delete item constructor.
+     */
+    DeleteItem() {
+        super("Delete item");
+    }
     /**
      * Get action key.
      * @return key
@@ -70,13 +75,6 @@ class DeleteItem implements UserAction {
         Item item = tracker.findById(id);
         tracker.delete(item);
     }
-    /**
-     * Info string.
-     * @return info data
-     */
-    public String info() {
-        return  String.format("%s. %s", this.key(), "Delete item");
-    }
 }
 
 /**
@@ -84,7 +82,13 @@ class DeleteItem implements UserAction {
  * @author antonviktorov
  * @since 1.0
  */
-class FindById implements UserAction {
+class FindById extends BaseAction implements UserAction {
+    /**
+     * Find by id item constructor.
+     */
+    FindById() {
+        super("Find item by id");
+    }
     /**
      * Get action key.
      * @return key
@@ -103,20 +107,19 @@ class FindById implements UserAction {
 
         System.out.println(String.format("Fond item: %s", item.getName()));
     }
-    /**
-     * Info string.
-     * @return info data
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Find item by id");
-    }
 }
 /**
  * Find by name item class.
  * @author antonviktorov
  * @since 1.0
  */
-class FindByName implements UserAction {
+class FindByName extends BaseAction implements UserAction {
+    /**
+     * Find by name item constructor.
+     */
+    FindByName() {
+        super("Find items by name");
+    }
     /**
      * Get action key.
      * @return key
@@ -139,20 +142,19 @@ class FindByName implements UserAction {
             System.out.println(item.getName());
         }
     }
-    /**
-     * Info string.
-     * @return info data
-     */
-    public String info() {
-        return  String.format("%s. %s", this.key(), "Find items by name");
-    }
 }
 /**
  * Add comment action class.
  * @author antonviktorov
  * @since 1.0
  */
-class AddComment implements UserAction {
+class AddComment extends BaseAction implements UserAction {
+    /**
+     * Add comment to tracker constructor.
+     */
+    AddComment() {
+        super("Add comment to the task");
+    }
     /**
      * Get action key.
      * @return key
@@ -171,13 +173,6 @@ class AddComment implements UserAction {
 
         String comment = input.ask("Please input task comment: ");
         item.addComment(comment);
-    }
-    /**
-     * Info string.
-     * @return info data
-     */
-    public String info() {
-        return  String.format("%s. %s", this.key(), "Add comment to the task");
     }
 }
 
@@ -202,7 +197,7 @@ public class MenuTracker {
     /**
      * User actions array.
      */
-    protected UserAction[] actions = new UserAction[8];
+    protected UserAction[] actions = new UserAction[9];
 
     /**
      * Menu tracker constructor.
@@ -226,6 +221,14 @@ public class MenuTracker {
         this.actions[position++] = new FindByName();
         this.actions[position++] = new MenuTracker.ShowItemsFiltered();
         this.actions[position++] = new AddComment();
+    }
+
+    /**
+     * Add action.
+     * @param action - action entity
+     */
+    public void addAction(UserAction action) {
+        this.actions[this.position++] = action;
     }
 
     /**
@@ -268,7 +271,13 @@ public class MenuTracker {
      * @author antonviktorov
      * @since 1.0
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction implements UserAction {
+        /**
+         * Add item constructor.
+         */
+        AddItem() {
+            super("Add new item");
+        }
         /**
          * Get action key.
          * @return key
@@ -285,13 +294,6 @@ public class MenuTracker {
             String name = input.ask("Please enter task name:");
             String description = input.ask("Please enter task description:");
             tracker.add(new Task(name, description));
-        }
-        /**
-         * Info string.
-         * @return info data
-         */
-        public String info() {
-            return  String.format("%s. %s", this.key(), "Add new item");
         }
     }
 

@@ -229,6 +229,21 @@ public class MenuTracker {
     }
 
     /**
+     * Get action keys.
+     * @return keys
+     */
+    public int[] getActionKeys() {
+        int[] keys = new int[position];
+        int i = 0;
+        for (UserAction action : this.actions) {
+            if (action != null) {
+                keys[i++] = action.key();
+            }
+        }
+        return keys;
+    }
+
+    /**
      * Execute action.
      * @param key - action key
      */

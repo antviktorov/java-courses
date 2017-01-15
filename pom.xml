@@ -88,6 +88,7 @@
                             <exclude>com/antviktorov/start/ConsoleInput.class</exclude>
                             <exclude>com/antviktorov/filters/EqualFilter.class</exclude>
                             <exclude>com/antviktorov/filters/NumericFilter.class</exclude>
+                            <exclude>com/antviktorov/start/ValidateInput.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>

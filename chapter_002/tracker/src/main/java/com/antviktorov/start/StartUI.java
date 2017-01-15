@@ -8,7 +8,10 @@ import com.antviktorov.menu.MenuTracker;
  * @since 1.0
  */
 public class StartUI {
-
+    /**
+     * Available actions.
+     */
+    private int[] ranges;
     /**
      * Input flow.
      */
@@ -34,10 +37,16 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(input, tracker);
         menu.fillActions();
+        this.ranges = menu.getActionKeys();
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select:"));
-            menu.select(key);
+            int key = Integer.valueOf(input.ask("Select:", ranges));
+            try {
+                menu.select(key);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
         } while (!"y".equals(this.input.ask("Exit? y")));
     }
 
@@ -47,7 +56,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
         new StartUI(
-                new ConsoleInput(), new Tracker()
+                new ValidateInput(), new Tracker()
         ).init();
     }
 }

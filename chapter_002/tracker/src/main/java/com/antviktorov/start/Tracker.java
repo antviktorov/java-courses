@@ -1,5 +1,7 @@
 package com.antviktorov.start;
 
+import com.antviktorov.menu.exceptions.MaxTrackerItemsException;
+import com.antviktorov.menu.exceptions.OutOfIdException;
 import com.antviktorov.models.Item;
 import com.antviktorov.filters.Filter;
 
@@ -29,8 +31,12 @@ public class Tracker {
      * Add item.
      * @param item - new item to ad in tracker.
      * @return Item
+     * @throws MaxTrackerItemsException
      */
-    public Item add(Item item) {
+    public Item add(Item item) throws MaxTrackerItemsException {
+        if (this.position == items.length) {
+            throw new MaxTrackerItemsException();
+        }
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
@@ -39,19 +45,24 @@ public class Tracker {
     /**
      * Update item in tracker.
      * @param needle - item to update
+     * @throws OutOfIdException
      */
-    public void update(Item needle) {
+    public void update(Item needle) throws OutOfIdException {
         int position = 0;
+        Boolean fond = false;
         for (Item item : items) {
+            if (item == null) {
+                break;
+            }
             if (item.getId().equals(needle.getId())) {
                 this.items[position] = needle;
+                fond = true;
                 break;
             }
-            position++;
+        }
 
-            if (position == this.position) {
-                break;
-            }
+        if (!fond) {
+            throw new OutOfIdException();
         }
     }
 
@@ -72,11 +83,8 @@ public class Tracker {
             }
             newItems[position++] = item;
         }
-
         this.items = newItems;
         this.position = position;
-
-        newItems = null;
     }
 
     /**
@@ -102,14 +110,19 @@ public class Tracker {
      * Look for item in items.
      * @param id - needle id
      * @return Item
+     * @throws OutOfIdException
      */
-    public Item findById(String id) {
+    public Item findById(String id) throws OutOfIdException {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
             }
+        }
+
+        if (result == null) {
+            throw new OutOfIdException();
         }
 
         return result;

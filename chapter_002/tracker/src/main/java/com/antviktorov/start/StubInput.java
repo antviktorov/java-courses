@@ -1,5 +1,7 @@
 package com.antviktorov.start;
 
+import com.antviktorov.menu.exceptions.MenuOutException;
+
 /**
  * Test input class.
  */
@@ -28,5 +30,28 @@ public class StubInput implements Input {
      */
     public String ask(String question) {
         return answers[position++];
+    }
+
+    /**
+     * Read question.
+     * @param question - question
+     * @param range - range of available commands
+     * @throws MenuOutException
+     * @return key
+     */
+    public int ask(String question, int[] range) throws MenuOutException {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exists = false;
+        for (int value : range) {
+            if (value == key) {
+                exists = true;
+                break;
+            }
+        }
+        if (exists) {
+            return key;
+        } else {
+            throw new MenuOutException("Out if menu exception");
+        }
     }
 }

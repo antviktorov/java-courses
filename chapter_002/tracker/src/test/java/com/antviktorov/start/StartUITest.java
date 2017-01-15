@@ -1,5 +1,6 @@
 package com.antviktorov.start;
 
+import com.antviktorov.menu.exceptions.MenuOutException;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -139,5 +140,58 @@ public class StartUITest {
         Item item = items[1];
 
         assertThat("Check comments", item.getComments().length, is(3));
+    }
+
+    @Test
+    public void whenAddMaxTasksThenWatchTracker() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(
+                new String[] {
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "n",
+                        "0", "Test task", "Test description", "y",
+                }
+        );
+        new StartUI(input, tracker).init();
+    }
+
+    @Test
+    public void whenDeleteWrongTaskThenWatchTracker() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(
+                new String[] {
+                        "3", "12312312312312312313412412", "y",
+                }
+        );
+        new StartUI(input, tracker).init();
+    }
+
+    @Test
+    public void whenInputWrongCommandThenWatchTracker() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(
+                new String[] {
+                        "1000",
+                        "test test",
+                        "0", "Test task", "Test description", "y",
+                }
+        );
+
+        try {
+            new StartUI(input, tracker).init();
+        } catch (MenuOutException e) {
+            System.out.println("Please select key from menu");
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter validated data again");
+        }
     }
 }

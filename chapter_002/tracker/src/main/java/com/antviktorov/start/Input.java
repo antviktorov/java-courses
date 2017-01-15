@@ -10,4 +10,12 @@ public interface Input {
      * @return flow question
      */
     String ask(String question);
+
+    /**
+     * Read question.
+     * @param question - question
+     * @param range - range of available commands
+     * @return key
+     */
+    int ask(String question, int[] range);
 }

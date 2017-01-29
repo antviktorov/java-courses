@@ -45,6 +45,6 @@ public class King extends Figure {
      * @return King instance
      */
     public Figure clone(Cell destination) {
-        return new Queen(destination);
+        return new King(destination);
     }
 }

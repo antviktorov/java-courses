@@ -14,8 +14,9 @@ import com.antviktorov.chess.figures.Figure;
 public class Board {
     /**
      * Figures on board.
+     * 32 really
      */
-    protected Figure[] figures = new Figure[32];
+    protected Figure[] figures = new Figure[4];
     /**
      * Current figure position to add.
      */

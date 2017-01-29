@@ -24,6 +24,15 @@ public class BoardTest {
         board.addFigure(pawn);
         Figure movedPawn = board.move(new Cell(0,0), new Cell(0,1));
         assertThat(movedPawn, is(board.getFigure(new Cell(0,1))));
+
+        movedPawn = board.move(new Cell(0,1), new Cell(0,2));
+        assertThat(movedPawn, is(board.getFigure(new Cell(0,2))));
+
+        try {
+            board.move(new Cell(0,2), new Cell(0,4));
+        } catch (ImpossibleMoveException e) {
+            assertThat(e.getMessage(), is("Pawn can't move more than 1 cell"));
+        }
     }
 
     @Test

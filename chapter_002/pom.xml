@@ -11,5 +11,6 @@
     <modules>
         <module>tracker</module>
         <module>chess</module>
+        <module>islands</module>
     </modules>
 </project>

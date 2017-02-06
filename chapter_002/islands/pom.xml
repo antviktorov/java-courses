@@ -1,6 +1,6 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>chess</artifactId>
+    <artifactId>islands</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
     <parent>

@@ -33,4 +33,21 @@ public class StreamCheckerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void whenFilterAbusedWordsThenWriteIt() {
+        StreamChecker checker = new StreamChecker();
+
+        try (OutputStream out = new ByteArrayOutputStream()) {
+            checker.dropAbuses(
+                    new ByteArrayInputStream("Hello World Tom World".getBytes()),
+                    out,
+                    new String[]{"World ", "Tom "}
+            );
+
+            assertThat(out.toString(), is("Hello World"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

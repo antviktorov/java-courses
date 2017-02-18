@@ -91,6 +91,8 @@
                             <exclude>com/antviktorov/filters/NumericFilter.class</exclude>
                             <exclude>com/antviktorov/start/ValidateInput.class</exclude>
                             <exclude>com/antviktorov/strategy/Run.class</exclude>
+                            <exclude>com/antviktorov/io/chat/states/Actions.class</exclude>
+                            <exclude>com/antviktorov/io/chat/states/States.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>

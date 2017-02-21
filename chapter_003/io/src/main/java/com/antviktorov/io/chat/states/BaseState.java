@@ -35,7 +35,7 @@ public abstract class BaseState  {
      * @return boolean
      */
     public Boolean isFinished(String request) {
-        if (request == Actions.ACTION_FINISH) {
+        if (request.equals(Actions.ACTION_FINISH)) {
             changeState(new Finished(this.chat));
             return true;
         }

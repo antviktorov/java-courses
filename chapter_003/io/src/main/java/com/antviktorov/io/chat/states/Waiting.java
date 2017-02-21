@@ -26,7 +26,7 @@ public class Waiting extends BaseState implements State {
             return "";
         }
 
-        if (request == Actions.ACTION_RUN) {
+        if (request.equals(Actions.ACTION_RUN)) {
             changeState(new Running(this.chat));
         }
         return "";

@@ -52,7 +52,7 @@ public class Running extends BaseState implements State {
             return "";
         }
 
-        if (request == Actions.ACTION_STOP) {
+        if (request.equals(Actions.ACTION_STOP)) {
             changeState(new Waiting(this.chat));
             return "";
         }
@@ -91,8 +91,6 @@ public class Running extends BaseState implements State {
                     break;
                 }
             }
-
-            dictionary.close();
 
         } catch (IOException e) {
             e.printStackTrace();

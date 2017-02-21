@@ -56,7 +56,7 @@ public class ConsoleChat {
             String request = input.ask();
             log(request);
             log(state.process(request));
-        } while (state.code() != States.STATE_FINISHED);
+        } while (!(state.code()).equals(States.STATE_FINISHED));
     }
 
     /**
@@ -114,5 +114,14 @@ public class ConsoleChat {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Console function.
+     * @param params - console params
+     */
+    public static void main(String[] params) {
+        ConsoleChat chat = new ConsoleChat(new ConsoleInput(), true);
+        chat.start();
     }
 }

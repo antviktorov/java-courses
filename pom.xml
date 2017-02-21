@@ -93,6 +93,7 @@
                             <exclude>com/antviktorov/strategy/Run.class</exclude>
                             <exclude>com/antviktorov/io/chat/states/Actions.class</exclude>
                             <exclude>com/antviktorov/io/chat/states/States.class</exclude>
+                            <exclude>com/antviktorov/io/chat/ConsoleInput.class</exclude>
                             <exclude>com/antviktorov/io/bot/Client.class</exclude>
                             <exclude>com/antviktorov/io/bot/Server.class</exclude>
                             <exclude>com/antviktorov/io/bot/Dictionary.class</exclude>

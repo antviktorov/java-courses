@@ -10,5 +10,6 @@
     </parent>
     <modules>
         <module>io</module>
+        <module>net_manager</module>
     </modules>
 </project>
